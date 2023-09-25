@@ -15,15 +15,15 @@ app.use((req, res, next) => {
     //console.log("La requete est de type "+ req.method);
     //console.log(req.url);
     let path = req.method+" "+req.path;
-   
     
     object[path] = (object[path] ? object[path] + 1 : 1);
 
-    console.log("Request counter :");
-    for (let value in object) {
-        console.log("- "+value+" : "+object[value]);
-    }
+    let text = "Request counter :\n";
     
+    for (let value in object) {
+        text +=` - ${value} : ${object[value]} \n`;
+    }
+    console.log(text);
    
     next();
 });
