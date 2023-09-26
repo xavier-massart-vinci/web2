@@ -20,7 +20,6 @@ POST {{baseUrl}}/films/
 Content-Type: application/json
 
 {
-
     "title": "Oppenheimer",
     "duration":  181,
     "budget": 100000,
@@ -46,5 +45,18 @@ PUT {{baseUrl}}/films/1
 Content-Type: application/json
 
 {
-    "budget": 100000000000
+    "link": "https://www.imdb.com/name/nm0649185"
+}
+
+
+### Patch specifique film create
+PUT {{baseUrl}}/films/100
+Content-Type: application/json
+
+{
+
+    "title": "Oppenheimer",
+    "duration":  181,
+    "budget": 100000,
+     "link": "https://www.imdb.com/name/nm0649185"
 }

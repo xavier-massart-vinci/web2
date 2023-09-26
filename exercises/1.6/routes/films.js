@@ -41,21 +41,21 @@ router.get("/:id", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  const orderByMinumDuration = req?.query?.["minimum-duration"]
+  let orderByMinumDuration = req?.query?.["minimum-duration"]
     ? req.query["minimum-duration"]
     : undefined;
 
-  let orderedMovies;
+  if(!orderByMinumDuration) return res.json(MOVIES);
+  if(typeof orderByMinumDuration === Number && orderByMinumDuration <= 0 )
+    return res.sendStatus(400);
 
-  if (typeof orderByMinumDuration === Number && orderByMinumDuration > 0)
-    orderByMinumDuration = parseInt(orderByMinumDuration);
-
-  orderedMovies = [...MOVIES].filter((obj) => {
+  const orderedMovies = [...MOVIES].filter((obj) => {
     return obj.duration >= orderByMinumDuration;
   });
+  
 
-  console.log(orderedMovies);
-  res.json(orderedMovies.length != 0 ? orderedMovies : MOVIES);
+
+  res.json(orderedMovies);
 });
 
 router.post("/", (req, res) => {
@@ -84,7 +84,7 @@ router.post("/", (req, res) => {
   };
 
   MOVIES.push(newMovie);
-
+    
   res.json(newMovie);
 });
 
@@ -147,21 +147,23 @@ router.put("/:id", (req, res) =>{
         return res.sendStatus(400);
       }
     
-
   const indexFound = MOVIES.findIndex((movie) => movie.id == req.params.id);
 
+  //not current element exit whit this index let's create one
   if(indexFound < 0 ){
-    if(!title || !duration || !budget || !link )
+    if(!title || !duration || !budget || !link){
       return res.sendStatus(404);
-
+    }
+      
     const lastMovieId = MOVIES?.length !== 0 ? MOVIES.length - 1 : undefined;
     const nextId = lastMovieId !== undefined ? MOVIES[lastMovieId]?.id + 1 : 1;
 
+
     const newMovie = {
-      id: nextId,
+      id:  parseInt(req.params.id),
       title: title,
-      duration: duration,
-      budget: budget,
+      duration: parseInt(duration),
+      budget: parseInt(budget),
       link: link,
     };
     MOVIES[nextId] = newMovie;
@@ -170,19 +172,12 @@ router.put("/:id", (req, res) =>{
     
     
   } 
-
   
-
-  
-
   const updatedMovies = {...MOVIES[indexFound], ...req.body};
 
   MOVIES[indexFound] = updatedMovies;
 
   res.json(MOVIES[indexFound]);
-
-
-
 
 })
 
