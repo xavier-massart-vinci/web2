@@ -1,0 +1,29 @@
+#### Films
+
+@baseUrl = http://localhost:3000
+
+### Get all movies
+GET {{baseUrl}}/films
+
+
+### Get all with minium duration
+GET {{baseUrl}}/films?minimum-duration=160
+
+
+
+### Get Specific movies
+GET {{baseUrl}}/films/1
+
+
+### Create new Movie
+POST {{baseUrl}}/films/
+Content-Type: application/json
+
+{
+
+    "title": "Oppenheimer",
+    "duration":  181,
+    "budget": 100000,
+     "link": "https://www.imdb.com/name/nm0649185"
+}
+
