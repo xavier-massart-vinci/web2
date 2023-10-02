@@ -108,7 +108,7 @@ router.delete("/:id", (req, res) => {
 
   const movies = parse(jsonDbPath, MOVIES);
 
-  const indexOfDelete = movies.findIndex((movie) => movie.id === id);
+  const indexOfDelete = movies.findIndex((movie) =>movie.id ===  Number(id));
 
   if(indexOfDelete < 0 ) return res.sendStatus(404);
 
