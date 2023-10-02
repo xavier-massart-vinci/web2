@@ -1,0 +1,62 @@
+#### Films
+
+@baseUrl = http://localhost:3000
+
+### Get all movies
+GET {{baseUrl}}/films
+
+
+### Get all with minium duration
+GET {{baseUrl}}/films?minimum-duration=160
+
+
+
+### Get Specific movies
+GET {{baseUrl}}/films/0
+
+
+### Create new Movie
+POST {{baseUrl}}/films/
+Content-Type: application/json
+
+{
+    "title": "Oppenheimer",
+    "duration":  181,
+    "budget": 100000,
+    "link": "https://www.imdb.com/name/nm0649185"
+}
+
+
+### Delete specifique movie
+DELETE {{baseUrl}}/films/1
+
+
+### Patch specifique film
+PATCH {{baseUrl}}/films/28
+Content-Type: application/json
+
+{
+    "duration": 170
+}
+
+
+### Patch specifique film
+PUT {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+    "link": "https://www.imdb.com/name/nm0649185"
+}
+
+
+### Patch specifique film create
+PUT {{baseUrl}}/films/100
+Content-Type: application/json
+
+{
+
+    "title": "Oppenheimer",
+    "duration":  181,
+    "budget": 100000,
+     "link": "https://www.imdb.com/name/nm0649185"
+}
