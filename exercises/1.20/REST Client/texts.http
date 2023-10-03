@@ -1,0 +1,29 @@
+######### NORMAL OPERATION  ###########
+
+### Read all texts
+GET http://localhost:3000/texts
+
+### Read all texts with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/texts
+
+### Read all texts by level
+GET {{baseUrl}}/texts/?level=hard
+
+
+### Read texts identified by 41abae89-15ff-4de9-bdbe-891070e3ee80
+GET {{baseUrl}}/texts/ff546f55-750e-4612-9c31-bd4434fac11b
+
+### Create a texts
+POST {{baseUrl}}/texts
+Content-Type: application/json
+
+{
+        "content": "text added",
+        "level": "hard"
+    }
+
+### Delete texts identified by 2
+DELETE {{baseUrl}}/texts/ff546f55-750e-4612-9c31-bd4434fac11b
+
+
