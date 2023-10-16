@@ -20,7 +20,7 @@ btn.addEventListener("mouseover", () =>{
 btn.addEventListener("click", () =>{
     countClick++;
     if(countClick === 10){
-        const timeTakeToClick = startTime.getMilliseconds() - new Date().getMilliseconds(); // get difference beetwen new and started timer
+        const timeTakeToClick = new Date().valueOf() - startTime.valueOf(); // get difference beetwen new and started timer
         alert(`You win ! You clicked 10 times within ${timeTakeToClick} ms`);
         clearTimeout(timedoutId);
     }
