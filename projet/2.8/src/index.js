@@ -7,7 +7,7 @@ import interstellar from './img/interstellar.png';
 
 
 
-const homePage = `
+const homeContent = `
 <div class="container text-center">
     <div class="row mb-4">
         <div class="col">
@@ -31,4 +31,4 @@ const homePage = `
 
 const main = document.querySelector("main");
 
-main.innerHTML = homePage;
+main.innerHTML = homeContent;
