@@ -1,4 +1,5 @@
 import Navigate from "../Router/Navigate";
+import { addOneMovie } from "../../models/movies";
 
 const AddMoviePage = () =>{
     renderMoviePage();
@@ -50,11 +51,8 @@ function addListenderForm() {
         const duration = document.querySelector("#duration").value;
         const budget = document.querySelector("#budget").value;
         const link = document.querySelector("#link").value;
-
-        console.log(`title: ${title}`);
-        console.log(`duration: ${duration}`);
-        console.log(`budget: ${budget}`);
-        console.log(`link: ${link}`);
+        
+        addOneMovie(title, duration, budget, link);
 
 
         Navigate('/viewMoviePage');

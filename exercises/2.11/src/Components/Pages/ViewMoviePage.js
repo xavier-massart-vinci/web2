@@ -1,9 +1,43 @@
-
+import { readAllMovies } from "../../models/movies";
 
 const ViewMoviePage = () =>{
-    const main = document.querySelector("main");
-    main.innerHTML = `List of movies`;
+    renderViewMoviePage();
 }
 
+
+function renderViewMoviePage() {
+    const main = document.querySelector("main");
+    const movies = readAllMovies();
+
+    main.innerHTML = `
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Duration (min)</th>
+            <th scope="col">Budget (million)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Oppen</th>
+                <td>2000</td>
+                <td>888</td>
+            </tr>
+        </tbody>
+    </table>`;
+
+    const tbody = document.querySelector("tbody");
+    movies.forEach( (elem) => {
+        tbody.innerHTML = ` 
+            <tr>
+                <th><a href="${elem.link}">${elem.title}</a></th>
+                <td>${elem.duration}</td>
+                <td>${elem.budget}</td>
+            </tr>`;
+        
+    });
+    
+}
 
 export default ViewMoviePage;
