@@ -1,3 +1,4 @@
+import Navigate from "../Router/Navigate";
 
 const AddMoviePage = () =>{
     renderMoviePage();
@@ -50,14 +51,14 @@ function addListenderForm() {
         const budget = document.querySelector("#budget").value;
         const link = document.querySelector("#link").value;
 
-
-
         console.log(`title: ${title}`);
         console.log(`duration: ${duration}`);
         console.log(`budget: ${budget}`);
         console.log(`link: ${link}`);
 
-    })
+
+        Navigate('/viewMoviePage');
+    });
 }
 
 

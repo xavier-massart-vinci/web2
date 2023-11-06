@@ -32,7 +32,13 @@ const Navbar = () => {
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" data-uri="/new">New Page</a>
-              </li>                         
+              </li>       
+              <li class="nav-item">
+              <a class="nav-link" href="#" data-uri="/addMoviePage">Add Movies</a>
+            </li>   
+            <li class="nav-item">
+            <a class="nav-link" href="#" data-uri="/viewMoviePage">List movies</a>
+          </li>                     
             </ul>
           </div>
         </div>
