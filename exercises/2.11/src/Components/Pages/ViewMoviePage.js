@@ -28,8 +28,10 @@ function renderViewMoviePage() {
     </table>`;
 
     const tbody = document.querySelector("tbody");
+    let list = '';
     movies.forEach( (elem) => {
-        tbody.innerHTML = ` 
+        
+        list += ` 
             <tr>
                 <th><a href="${elem.link}">${elem.title}</a></th>
                 <td>${elem.duration}</td>
@@ -37,6 +39,8 @@ function renderViewMoviePage() {
             </tr>`;
         
     });
+
+    tbody.innerHTML = list;
     
 }
 
