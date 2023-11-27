@@ -51,14 +51,15 @@ const Navbar = () => {
   navbarWrapper.innerHTML = navbar;
 
   const body = document.querySelector("main");
-
+const checkbox = document.querySelector("#toggle-one");
 
   if( localStorage.getItem(STORE_THEME) === "dark"){
     body.classList.add("dark");
+    checkbox.checked = true;
   }
 
 
-  document.querySelector("#toggle-one").addEventListener('click', () => {
+  checkbox.addEventListener('click', () => {
 
     const gettedTheme = localStorage.getItem(STORE_THEME);
 
